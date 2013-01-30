@@ -1,3 +1,3 @@
 RailsApp::Application.routes.draw do
-  # Maybe some route config here.
+  mount StaticCharge::Engine => "/pages", :as => 'static_charge'
 end

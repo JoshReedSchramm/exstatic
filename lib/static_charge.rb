@@ -1,5 +1,4 @@
-require "static_charge/version"
+require 'static_charge/engine'
 
 module StaticCharge
-  # Your code goes here...
 end
