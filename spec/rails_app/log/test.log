@@ -64,3 +64,15 @@ Connecting to database specified by database.yml
 Connecting to database specified by database.yml
 Connecting to database specified by database.yml
 Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Processing by Exstatic::PagesController#index as HTML
+  Rendered /Users/joshreedschramm/Projects/exstatic/app/views/exstatic/pages/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 14ms (Views: 13.4ms | ActiveRecord: 0.0ms)
+Connecting to database specified by database.yml
+Processing by Exstatic::PagesController#index as HTML
+  Rendered /Users/joshreedschramm/Projects/exstatic/app/views/exstatic/pages/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 14ms (Views: 13.3ms | ActiveRecord: 0.0ms)

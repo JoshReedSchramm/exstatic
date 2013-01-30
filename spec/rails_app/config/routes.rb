@@ -1,3 +1,3 @@
 RailsApp::Application.routes.draw do
-  mount Exstatic::Engine => "/pages", :as => 'exstatic'
+  mount Exstatic::Engine => "/exstatic", :as => 'exstatic'
 end
