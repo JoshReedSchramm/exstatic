@@ -6,11 +6,11 @@ require 'rails/test_help'
 require 'rubygems'
 require 'rspec/rails'
 
-require 'static_charge'
+require 'exstatic'
 
 Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }
 
 RSpec.configure do |config|
-  config.include StaticCharge::Engine.routes.url_helpers
+  config.include Exstatic::Engine.routes.url_helpers
   config.include Rails.application.routes.mounted_helpers
 end

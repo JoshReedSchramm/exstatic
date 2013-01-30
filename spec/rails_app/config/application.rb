@@ -8,7 +8,7 @@ require "sprockets/railtie"
 require "rails/test_unit/railtie"
 
 Bundler.require
-require "static_charge"
+require "exstatic"
 
 module RailsApp
   class Application < Rails::Application

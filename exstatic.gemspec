@@ -2,16 +2,16 @@
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
-require 'static_charge/version'
+require 'exstatic/version'
 
 Gem::Specification.new do |gem|
-  gem.name          = "static_charge"
-  gem.version       = StaticCharge::VERSION
+  gem.name          = "exstatic"
+  gem.version       = Exstatic::VERSION
   gem.authors       = ["Josh Schramm"]
   gem.email         = ["josh.schramm@gmail.com"]
   gem.description   = %q{Allows managed content pages in a Ruby on Rails 3.1+ application.}
   gem.summary       = %q{Allows managed content pages in a Ruby on Rails 3.1+ application.}
-  gem.homepage      = "http://github.com/JoshReedSchramm/static_charge"
+  gem.homepage      = "http://github.com/JoshReedSchramm/exstatic"
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }

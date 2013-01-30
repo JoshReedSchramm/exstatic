@@ -1,6 +1,6 @@
-# StaticCharge
+# Exstatic
 
-Static Charge is an embedded content management system for Ruby on
+Exstatic is an embedded content management system for Ruby on
 Rails. It integrates with a Rails 3.1+ web application to allow managed
 content creation for "static" pages.
 
@@ -8,7 +8,7 @@ content creation for "static" pages.
 
 Add this line to your application's Gemfile:
 
-    gem 'static_charge'
+    gem 'exstatic'
 
 And then execute:
 
@@ -16,7 +16,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install static_charge
+    $ gem install exstatic
 
 ## Usage
 
