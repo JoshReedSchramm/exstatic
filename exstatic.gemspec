@@ -1,6 +1,4 @@
-# -*- encoding: utf-8 -*-
-lib = File.expand_path('../lib', __FILE__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+$:.push File.expand_path("../lib", __FILE__)
 
 require 'exstatic/version'
 
@@ -17,6 +15,8 @@ Gem::Specification.new do |gem|
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ["lib"]
+
+  gem.add_dependency "rails", "~> 3.2.11"
 
   gem.add_development_dependency("rspec", "~> 2.12.0")
   gem.add_development_dependency("rspec-rails", "~> 2.12.0")
