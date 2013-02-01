@@ -1,1 +1,8 @@
 <h1> This will be a listing of pages</h1>
+<ul>
+  <% @pages.each do |p| %>
+    <li><%= link_to p.title, p %>
+  <% end %>
+</ul>
+
+<%= link_to "New Page", new_page_path %>

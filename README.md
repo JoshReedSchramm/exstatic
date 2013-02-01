@@ -22,6 +22,11 @@ Or install it yourself as:
 
 TODO: Write usage instructions here
 
+## Gem Todos
+
+TODO: Create a test runner rake task that resets test db in dummy app
+TODO: Figure out how to support Mongoid 
+
 ## Contributing
 
 1. Fork it

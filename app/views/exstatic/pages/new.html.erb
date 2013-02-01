@@ -1,0 +1,10 @@
+<h1>Create a Page</h1>
+<%= form_for @page do |f| %>
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>
