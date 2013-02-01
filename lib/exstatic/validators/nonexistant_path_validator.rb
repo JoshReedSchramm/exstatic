@@ -7,7 +7,9 @@ module Exstatic
         path = '/' + value
 
         begin
-          if Rails.application.routes.recognize_path(path, :method => :get)
+          route = Rails.application.routes.recognize_path(path, :method => :get)
+
+          if route && !route[:controller].starts_with?("exstatic/")
             object.errors[attribute] << (options[:message] || "matches an existing path")
           end
         rescue ActionController::RoutingError

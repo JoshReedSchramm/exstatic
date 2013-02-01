@@ -23,4 +23,16 @@ describe Exstatic::Validators::NonexistantPathValidator do
 
     end
   end
+
+  context "when a matching path is from exstatic" do
+    it "succeeds" do
+      page = Exstatic::Page.new(:slug => "foo/bar")
+
+      validator = Exstatic::Validators::NonexistantPathValidator.new({:attributes => {}})
+      validator.validate_each(page, :slug, page.slug)
+
+      page.errors[:slug].empty?.should == true
+
+    end
+  end
 end

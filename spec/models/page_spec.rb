@@ -14,4 +14,12 @@ describe Exstatic::Page do
     page.save.should be_false
     page.errors[:slug].should_not be_nil
   end
+
+  it "validates that the slug is unique" do
+    page1 = Exstatic::Page.create(:title => "This is my page", :slug => "foo", :content => "This is some content")
+
+    page2 = Exstatic::Page.new(:title => "This is my second page", :slug => "foo", :content => "This is some content")
+    page2.valid?.should be_false
+    page2.errors[:slug].should_not be_nil
+  end
 end

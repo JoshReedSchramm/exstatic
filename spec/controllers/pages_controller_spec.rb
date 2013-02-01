@@ -61,4 +61,21 @@ describe Exstatic::PagesController do
       assigns(:page).should == page
     end
   end
+
+  describe "GET display" do
+    it "renders the page based on the request path" do
+      page = mock_model(Exstatic::Page)
+
+      request.stub(:fullpath).and_return("/the/page/path")
+      Exstatic::Page.stub(:where).with(:slug => "the/page/path").and_return(page)
+      page.stub(:first!).and_return(page)
+
+      get :display, { :use_route => :exstatic }
+
+      response.should be_success
+      response.should render_template(:display)
+
+      assigns(:page).should == page
+    end
+  end
 end
