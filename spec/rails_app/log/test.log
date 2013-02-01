@@ -363,3 +363,295 @@ Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.0ms)
   [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
   [1m[36mExstatic::Page Load (0.2ms)[0m  [1mSELECT "exstatic_pages".* FROM "exstatic_pages" WHERE "exstatic_pages"."slug" = 'foo' LIMIT 1[0m
   [1m[35m (0.5ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (7.4ms)[0m  [1mINSERT INTO "exstatic_pages" ("content", "created_at", "slug", "title", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "This is some content"], ["created_at", Fri, 01 Feb 2013 02:25:02 UTC +00:00], ["slug", "foo"], ["title", "This is my page"], ["updated_at", Fri, 01 Feb 2013 02:25:02 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mExstatic::Page Load (0.2ms)[0m  [1mSELECT "exstatic_pages".* FROM "exstatic_pages" WHERE "exstatic_pages"."slug" = 'foo' LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "exstatic_pages" ("content", "created_at", "slug", "title", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "bar"], ["created_at", Fri, 01 Feb 2013 02:25:02 UTC +00:00], ["slug", "custompage"], ["title", "foo"], ["updated_at", Fri, 01 Feb 2013 02:25:02 UTC +00:00]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (0.5ms)[0m  [1mbegin transaction[0m
+Processing by Exstatic::PagesController#index as HTML
+  Rendered /Users/joshreedschramm/Projects/exstatic/app/views/exstatic/pages/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 15ms (Views: 14.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Processing by Exstatic::PagesController#new as HTML
+Completed 200 OK in 13ms (Views: 1.9ms | ActiveRecord: 2.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Processing by Exstatic::PagesController#create as HTML
+  Parameters: {"page"=>{"title"=>"foo"}}
+Redirected to http://test.host/exstatic/pages/1001
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Processing by Exstatic::PagesController#create as HTML
+  Parameters: {"page"=>{"title"=>"foo"}}
+Completed 200 OK in 1ms (Views: 1.1ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Processing by Exstatic::PagesController#show as HTML
+  Parameters: {"id"=>"1"}
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mExstatic::Page Exists (2.2ms)[0m  [1mSELECT 1 AS one FROM "exstatic_pages" WHERE "exstatic_pages"."slug" = 'foo' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mExstatic::Page Exists (0.2ms)[0m  SELECT 1 AS one FROM "exstatic_pages" WHERE "exstatic_pages"."slug" = 'custompage' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+Processing by Exstatic::PagesController#index as HTML
+  Rendered /Users/joshreedschramm/Projects/exstatic/app/views/exstatic/pages/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 15ms (Views: 14.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Processing by Exstatic::PagesController#new as HTML
+Completed 200 OK in 13ms (Views: 1.8ms | ActiveRecord: 2.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Processing by Exstatic::PagesController#create as HTML
+  Parameters: {"page"=>{"title"=>"foo"}}
+Redirected to http://test.host/exstatic/pages/1001
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Processing by Exstatic::PagesController#create as HTML
+  Parameters: {"page"=>{"title"=>"foo"}}
+Completed 200 OK in 1ms (Views: 1.1ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Processing by Exstatic::PagesController#show as HTML
+  Parameters: {"id"=>"1"}
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mExstatic::Page Exists (2.0ms)[0m  [1mSELECT 1 AS one FROM "exstatic_pages" WHERE "exstatic_pages"."slug" = 'foo' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mExstatic::Page Exists (0.2ms)[0m  SELECT 1 AS one FROM "exstatic_pages" WHERE "exstatic_pages"."slug" = 'custompage' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.5ms)[0m  [1mbegin transaction[0m
+Processing by Exstatic::PagesController#index as HTML
+  Rendered /Users/joshreedschramm/Projects/exstatic/app/views/exstatic/pages/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 15ms (Views: 14.4ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Processing by Exstatic::PagesController#new as HTML
+Completed 200 OK in 13ms (Views: 1.9ms | ActiveRecord: 2.2ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Processing by Exstatic::PagesController#create as HTML
+  Parameters: {"page"=>{"title"=>"foo"}}
+Redirected to http://test.host/exstatic/pages/1001
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Processing by Exstatic::PagesController#create as HTML
+  Parameters: {"page"=>{"title"=>"foo"}}
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Processing by Exstatic::PagesController#show as HTML
+  Parameters: {"id"=>"1"}
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (10.1ms)[0m  [1mINSERT INTO "exstatic_pages" ("content", "created_at", "slug", "title", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "This is some content"], ["created_at", Fri, 01 Feb 2013 02:53:48 UTC +00:00], ["slug", "foo"], ["title", "This is my page"], ["updated_at", Fri, 01 Feb 2013 02:53:48 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mExstatic::Page Load (0.2ms)[0m  [1mSELECT "exstatic_pages".* FROM "exstatic_pages" WHERE "exstatic_pages"."slug" = 'foo' LIMIT 1[0m
+  [1m[35m (1.7ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.5ms)[0m  [1mbegin transaction[0m
+Processing by Exstatic::PagesController#index as HTML
+  Rendered /Users/joshreedschramm/Projects/exstatic/app/views/exstatic/pages/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 16ms (Views: 15.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Processing by Exstatic::PagesController#new as HTML
+Completed 200 OK in 14ms (Views: 2.1ms | ActiveRecord: 2.8ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Processing by Exstatic::PagesController#create as HTML
+  Parameters: {"page"=>{"title"=>"foo"}}
+Redirected to http://test.host/exstatic/pages/1001
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Processing by Exstatic::PagesController#create as HTML
+  Parameters: {"page"=>{"title"=>"foo"}}
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Processing by Exstatic::PagesController#show as HTML
+  Parameters: {"id"=>"1"}
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (7.7ms)[0m  [1mINSERT INTO "exstatic_pages" ("content", "created_at", "slug", "title", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "This is some content"], ["created_at", Fri, 01 Feb 2013 02:54:13 UTC +00:00], ["slug", "foo"], ["title", "This is my page"], ["updated_at", Fri, 01 Feb 2013 02:54:13 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mExstatic::Page Load (0.2ms)[0m  [1mSELECT "exstatic_pages".* FROM "exstatic_pages" WHERE "exstatic_pages"."slug" = 'foo' LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.5ms)[0m  [1mbegin transaction[0m
+Processing by Exstatic::PagesController#index as HTML
+  Rendered /Users/joshreedschramm/Projects/exstatic/app/views/exstatic/pages/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 15ms (Views: 14.8ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Processing by Exstatic::PagesController#new as HTML
+Completed 200 OK in 14ms (Views: 1.9ms | ActiveRecord: 2.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Processing by Exstatic::PagesController#create as HTML
+  Parameters: {"page"=>{"title"=>"foo"}}
+Redirected to http://test.host/exstatic/pages/1001
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Processing by Exstatic::PagesController#create as HTML
+  Parameters: {"page"=>{"title"=>"foo"}}
+Completed 200 OK in 1ms (Views: 1.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Processing by Exstatic::PagesController#show as HTML
+  Parameters: {"id"=>"1"}
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (7.9ms)[0m  [1mINSERT INTO "exstatic_pages" ("content", "created_at", "slug", "title", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "This is some content"], ["created_at", Fri, 01 Feb 2013 02:54:27 UTC +00:00], ["slug", "foo"], ["title", "This is my page"], ["updated_at", Fri, 01 Feb 2013 02:54:27 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mExstatic::Page Load (0.2ms)[0m  [1mSELECT "exstatic_pages".* FROM "exstatic_pages" WHERE "exstatic_pages"."slug" = 'foo' LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.5ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.5ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (7.6ms)[0m  [1mINSERT INTO "exstatic_pages" ("content", "created_at", "slug", "title", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "This is some content"], ["created_at", Fri, 01 Feb 2013 02:55:25 UTC +00:00], ["slug", "foo"], ["title", "This is my page"], ["updated_at", Fri, 01 Feb 2013 02:55:25 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mExstatic::Page Load (0.2ms)[0m  [1mSELECT "exstatic_pages".* FROM "exstatic_pages" WHERE "exstatic_pages"."slug" = 'foo' LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.5ms)[0m  [1mbegin transaction[0m
+Processing by Exstatic::PagesController#index as HTML
+  Rendered /Users/joshreedschramm/Projects/exstatic/app/views/exstatic/pages/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 16ms (Views: 15.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Processing by Exstatic::PagesController#new as HTML
+Completed 200 OK in 14ms (Views: 2.3ms | ActiveRecord: 2.4ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Processing by Exstatic::PagesController#create as HTML
+  Parameters: {"page"=>{"title"=>"foo"}}
+Redirected to http://test.host/exstatic/pages/1001
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Processing by Exstatic::PagesController#create as HTML
+  Parameters: {"page"=>{"title"=>"foo"}}
+Completed 200 OK in 1ms (Views: 1.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Processing by Exstatic::PagesController#show as HTML
+  Parameters: {"id"=>"1"}
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (8.2ms)[0m  [1mINSERT INTO "exstatic_pages" ("content", "created_at", "slug", "title", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["content", "This is some content"], ["created_at", Fri, 01 Feb 2013 02:55:30 UTC +00:00], ["slug", "foo"], ["title", "This is my page"], ["updated_at", Fri, 01 Feb 2013 02:55:30 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mExstatic::Page Load (0.3ms)[0m  [1mSELECT "exstatic_pages".* FROM "exstatic_pages" WHERE "exstatic_pages"."slug" = 'foo' LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction

@@ -8,4 +8,10 @@ describe Exstatic::Page do
     page2 = Exstatic::Page.where(:slug => "foo").first!
     page2.should == page
   end
+
+  it "validates that another routes with the same path does not exist" do
+    page = Exstatic::Page.new(:title => "foo", :content => "bar", :slug => "custompage")
+    page.save.should be_false
+    page.errors[:slug].should_not be_nil
+  end
 end
