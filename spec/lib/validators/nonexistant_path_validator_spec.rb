@@ -24,7 +24,7 @@ describe Exstatic::Validators::NonexistantPathValidator do
     end
   end
 
-  context "when a matching path is from exstatic" do
+  context "when a matchinj path is from exstatic" do
     it "succeeds" do
       page = Exstatic::Page.new(:slug => "foo/bar")
 
