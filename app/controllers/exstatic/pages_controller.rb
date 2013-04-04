@@ -1,4 +1,6 @@
 class Exstatic::PagesController < ApplicationController
+  before_filter Exstatic.authorization_method, :only => Exstatic.authorization_actions
+
   def index
     @pages = Exstatic::Page.all
   end
@@ -25,6 +27,10 @@ class Exstatic::PagesController < ApplicationController
   end
 
   private
+  def authorize_exstatic_pages
+    super if defined?(super)
+  end
+
   def stripped_path
     request.fullpath.gsub(/^\//, "")
   end

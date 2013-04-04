@@ -9,7 +9,7 @@ Gem::Specification.new do |gem|
   gem.email         = ["josh.schramm@gmail.com"]
   gem.description   = %q{Allows managed content pages in a Ruby on Rails 3.1+ application.}
   gem.summary       = %q{Allows managed content pages in a Ruby on Rails 3.1+ application.}
-  gem.homepage      = "http://github.com/JoshReedSchramm/exstatic"
+  gem.homepage      = "http://github.com/LevelSeven/exstatic"
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }

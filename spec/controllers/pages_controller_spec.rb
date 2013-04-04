@@ -14,12 +14,11 @@ describe Exstatic::PagesController do
   end
 
 
-  describe "GET new" do
-    it 'can serve a form to create a new page' do
-      get :new, { :use_route => :exstatic }
+  it 'can serve a form to create a new page' do
+    # fake a login
+    get :new, { :use_route => :exstatic }
 
-      response.should render_template('new')
-    end
+    response.should render_template('new')
   end
 
   describe 'POST create' do
@@ -76,6 +75,59 @@ describe Exstatic::PagesController do
       response.should render_template(:display)
 
       assigns(:page).should == page
+    end
+  end
+
+  context "When authorizing the user to make changes to a page" do
+    describe "when the default method is defined in application controller" do
+      before(:each) do
+        class ApplicationController
+          private 
+          def authorize_exstatic_pages
+            render :status => 402 and return
+          end
+        end
+      end
+      it "returns a 402 auth failure" do
+        get :new, { :use_route => :exstatic }
+        response.status.should == 402
+      end
+    end
+
+    describe "when a custom method has been defined" do
+      before(:each) do
+        Exstatic.authorization_method = :custom_page_auth
+        class ApplicationController
+          private 
+          def custom_page_auth
+            render :status => 402 and return
+          end
+        end
+      end
+      it "returns a 402 auth failure" do
+        get :new, { :use_route => :exstatic }
+        response.status.should == 402
+      end
+    end
+
+    describe "when secure methods have been overridden" do
+      before(:each) do
+        class ApplicationController
+          private 
+          def authorize_exstatic_pages
+            render :status => 402 and return
+          end
+        end
+      end
+      it "allows access to the non-filtered method" do
+        get :index, { :use_route => :exstatic }
+        response.status.should == 200
+      end
+
+      it "returns a 402 auth failure for filtered methods" do
+        get :new, { :use_route => :exstatic }
+        response.status.should == 402
+      end
     end
   end
 end
